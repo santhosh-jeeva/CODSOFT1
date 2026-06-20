@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zomato</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f8f8f8;
+    }
+
+    .hero {
+      height: 90vh;
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+      url("https://images.unsplash.com/photo-1504674900247-0877df9cc836");
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+    }
+
+    .logo {
+      font-size: 34px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+    }
+
+    /* HERO CONTENT */
+    .hero-content {
+      text-align: center;
+      margin-top: 120px;
+    }
+
+    .hero-content h1 {
+      font-size: 80px;
+      font-weight: bold;
+    }
+
+    .hero-content p {
+      font-size: 24px;
+      margin: 20px 0;
+    }
+
+    .search-box {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .search-box input {
+      padding: 15px;
+      width: 280px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 60px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      width: 320px;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: 0.3s;
+      text-decoration: none;
+      color: black;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      padding: 15px 15px 5px;
+      font-size: 20px;
+    }
+
+    .card p {
+      padding: 0 15px 15px;
+      color: gray;
+    }
+
+    footer {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #ff4f5a;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 50px;
+      }
+      .hero-content p {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <nav class="navbar">
+      <div class="logo">zomato</div>
+      <ul class="nav-links">
+        <li><a href="https://www.zomato.com/add-restaurant" target="_blank">Add restaurant</a></li>
+        <li><a href="https://www.zomato.com/login" target="_blank">Log in</a></li>
+        <li><a href="https://www.zomato.com/signup" target="_blank">Sign up</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-content">
+      <h1>zomato</h1>
+      <p>Discover the best food & drinks in your city</p>
+
+      <div class="search-box">
+        <input type="text" placeholder="📍 Chennai">
+        <input type="text" placeholder="Search for restaurant, cuisine or dish">
+      </div>
+    </div>
+  </header>
+
+  <!-- CARDS -->
+  <section class="cards">
+
+    <a class="card" href="https://www.zomato.com/chennai/delivery" target="_blank">
+      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
+      <h3>Order Online</h3>
+      <p>Stay home and order to your doorstep</p>
+    </a>
+
+    <a class="card" href="https://www.zomato.com/chennai/dine-out" target="_blank">
+      <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9">
+      <h3>Dining</h3>
+      <p>View the city's favourite dining venues</p>
+    </a>
+
+    <a class="card" href="https://www.zomato.com/chennai/nightlife" target="_blank">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4">
+      <h3>Nightlife & Clubs</h3>
+      <p>Explore bars, pubs and clubs</p>
+    </a>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>zomato website</p>
+    <p>
+      <a href="https://www.zomato.com" target="_blank">Visit Zomato</a>
+    </p>
+  </footer>
+
+</body>
+</html>
