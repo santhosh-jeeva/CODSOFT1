@@ -1,1 +1,955 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Santhosh Jeevarathinam | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1120;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --card: #020617;
+      --border: #1f2933;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle at top, #0f172a, #020617 60%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Layout */
+    .container {
+      width: min(1100px, 100% - 2rem);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.95), transparent);
+      border-bottom: 1px solid rgba(148,163,184,0.1);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .logo-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 16px rgba(56,189,248,0.8);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      position: relative;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.3rem;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--accent);
+      transition: width 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 3.5rem 0 3rem;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 4vw, 2.9rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(to right, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      color: var(--muted);
+      font-size: 0.98rem;
+      max-width: 34rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .pill {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.3);
+      color: var(--muted);
+      backdrop-filter: blur(16px);
+      background: rgba(15,23,42,0.7);
+    }
+
+    .pill span {
+      color: var(--accent);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s, border 0.15s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #38bdf8, #6366f1);
+      color: #0b1120;
+      font-weight: 600;
+      box-shadow: 0 10px 28px rgba(56,189,248,0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 35px rgba(56,189,248,0.4);
+    }
+
+    .btn-ghost {
+      background: rgba(15,23,42,0.8);
+      border-color: rgba(148,163,184,0.4);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .btn-icon {
+      font-size: 1rem;
+    }
+
+    .hero-right {
+      justify-self: center;
+    }
+
+    .glass-card {
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.18), transparent 55%),
+                  radial-gradient(circle at bottom, rgba(15,23,42,0.8), #020617);
+      border-radius: 1.4rem;
+      padding: 1.4rem;
+      border: 1px solid rgba(148,163,184,0.22);
+      width: min(330px, 100%);
+      box-shadow: 0 18px 45px rgba(15,23,42,0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-tag {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.5rem;
+    }
+
+    .glass-name {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .glass-role {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+    }
+
+    .glass-line {
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(148,163,184,0.6), transparent);
+      margin: 0.6rem 0 0.8rem;
+    }
+
+    .glass-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .glass-label {
+      color: var(--text);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 0.15rem;
+    }
+
+    .glass-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.18rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.5);
+      font-size: 0.68rem;
+      color: var(--muted);
+    }
+
+    .glass-badge-dot {
+      width: 0.4rem;
+      height: 0.4rem;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34,197,94,0.9);
+    }
+
+    .glass-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.4rem;
+    }
+
+    .glass-pill {
+      font-size: 0.68rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.3);
+      color: var(--muted);
+    }
+
+    /* Sections */
+    section {
+      padding: 2.5rem 0 1.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 2rem;
+    }
+
+    .about-text {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .about-text p + p {
+      margin-top: 0.8rem;
+    }
+
+    .info-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .info-item {
+      padding: 0.75rem 0.8rem;
+      border-radius: 0.85rem;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.35);
+      font-size: 0.82rem;
+    }
+
+    .info-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: rgba(15,23,42,0.9);
+      border-radius: 1rem;
+      padding: 1rem;
+      border: 1px solid rgba(148,163,184,0.35);
+    }
+
+    .card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .tag-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.3rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.4);
+      color: var(--muted);
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-tagline {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .project-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .project-desc {
+      font-size: 0.84rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    .project-links a {
+      color: var(--accent);
+    }
+
+    /* Timeline / Education */
+    .timeline {
+      border-left: 1px solid rgba(148,163,184,0.4);
+      padding-left: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .timeline-item {
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -1.26rem;
+      top: 0.2rem;
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 14px rgba(56,189,248,0.9);
+    }
+
+    .timeline-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .timeline-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 1.5rem;
+    }
+
+    .contact-card {
+      background: rgba(15,23,42,0.9);
+      border-radius: 1rem;
+      padding: 1rem;
+      border: 1px solid rgba(148,163,184,0.35);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.86rem;
+    }
+
+    .contact-label {
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .contact-value {
+      color: var(--text);
+    }
+
+    footer {
+      padding: 1.5rem 0 2rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 880px) {
+      .hero,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 2.5rem;
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      nav ul {
+        display: none; /* simple: hide nav links on very small screens */
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 1.9rem;
+      }
+      .glass-card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <span class="logo-dot"></span>
+        <span>SANTHOSH · PORTFOLIO</span>
+      </div>
+      <nav>
+  <ul>
+    <nav>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main class="container">
+    <section class="hero" id="top">
+      <div>
+        <div class="hero-eyebrow">👨🏻‍💻 Full-Stack Developer in progress</div>
+        <h1 class="hero-title">
+          Hi, I'm <span class="hero-highlight">Santhosh Jeevarathinam</span> 👋
+        </h1>
+        <p class="hero-subtitle">
+          B.Tech IT student at St. Joseph's Institute of Technology (2024–2028) with a strong interest in
+          <b>MERN stack</b>, problem solving, and building real-world applications that actually help people.
+        </p>
+        <div class="pill-row">
+          <div class="pill">🎯 Aspiring <span>MERN Full-Stack Developer</span></div>
+          <div class="pill">📚 Currently learning: Java, Python, Data Structures</div>
+          <div class="pill">🔥 30-Day Coding Challenge</div>
+        </div>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">
+            View Projects <span class="btn-icon">🚀</span>
+          </a>
+          <a href="#contact" class="btn btn-ghost">
+            Contact Me <span class="btn-icon">📩</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="glass-card">
+          <div class="glass-tag">Profile Snapshot</div>
+          <div class="glass-name">Santhosh Jeevarathinam</div>
+          <div class="glass-role">B.Tech IT · MERN Enthusiast</div>
+
+          <div class="glass-line"></div>
+
+          <div class="glass-row">
+            <div>
+              <div class="glass-label">Current</div>
+              <div>St. Joseph's Institute of Technology</div>
+              <div class="glass-pill-row">
+                <span class="glass-pill">CGPA: 8.80</span>
+              </div>
+            </div>
+            <div>
+              <div class="glass-label">Status</div>
+              <div class="glass-badge">
+                <span class="glass-badge-dot"></span>
+                Actively Learning
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-line"></div>
+
+          <div class="glass-row">
+            <div>
+              <div class="glass-label">Focus Areas</div>
+              <div class="glass-pill-row">
+                <span class="glass-pill">MERN Stack</span>
+                <span class="glass-pill">Java</span>
+                <span class="glass-pill">Python</span>
+              </div>
+            </div>
+            <div>
+              <div class="glass-label">Goal</div>
+              <div class="glass-pill-row">
+                <span class="glass-pill">Full-Stack Developer Role</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="section-header">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">A quick snapshot of who I am and what I’m building.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I'm Santhosh, currently pursuing my <b>B.Tech in Information Technology</b> at
+            <b>St. Joseph's Institute of Technology</b>. I enjoy learning how things work from the basics and
+            slowly building solid foundations in programming and problem solving.
+          </p>
+          <p>
+            My long-term goal is to become a <b>Full-Stack MERN Developer</b>. I practice regularly through
+            coding challenges, Java pattern problems, and hands-on projects. Recently, I've worked on ideas like a
+            <b>Women Safety AI App</b> and an <b>AI-Powered Personalized Learning</b> concept for a hackathon.
+          </p>
+          <p>
+            I focus on <b>writing clean, understandable code</b> and continuously improving my logic, especially in
+            data structures, algorithms, and backend concepts.
+          </p>
+        </div>
+
+        <div>
+          <div class="info-list">
+            <div class="info-item">
+              <div class="info-label">Name</div>
+              <div>Santhosh Jeevarathinam</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Role</div>
+              <div>Aspiring Full-Stack (MERN) Developer</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Location</div>
+              <div>Chennai, India 🇮🇳</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Education</div>
+              <div>B.Tech IT (2024–2028)</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Email</div>
+              <div><a href="mailto:meetjsanthosh@gmail.com">meetjsanthosh@gmail.com</a></div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">LinkedIn</div>
+              <div>
+                <a href="https://www.linkedin.com/in/santhosh-jeevarathinam-174148329" target="_blank">
+                  /santhosh-jeevarathinam-174148329
+                </a>
+              </div>
+            </div>
+            <!-- If you want phone, uncomment below -->
+            <!--
+            <div class="info-item">
+              <div class="info-label">Phone</div>
+              <div>+91 70106 71154</div>
+            </div>
+            -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="section-header">
+        <h2 class="section-title">Skills & Technologies</h2>
+        <p class="section-subtitle">The tools I'm learning and using to build projects.</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="card">
+          <div class="card-title">Core Programming</div>
+          <div class="tag-grid">
+            <span class="tag">C</span>
+            <span class="tag">Java (Basic)</span>
+            <span class="tag">Python</span>
+
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Web Fundamentals</div>
+          <div class="tag-grid">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">JavaScript (Basics)</span>
+            <span class="tag">Responsive Layouts</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">MERN & Backend Path</div>
+          <div class="tag-grid">
+            <span class="tag">MongoDB (NoSQL concepts)</span>
+            <span class="tag">Express.js (Learning)</span>
+            <span class="tag">React (Learning)</span>
+            <span class="tag">Node.js (Learning)</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">CS & Academic Areas</div>
+          <div class="tag-grid">
+            <span class="tag">Data Structures Basics</span>
+            <span class="tag">Algorithms (search, sort)</span>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="section-header">
+        <h2 class="section-title">Projects & Highlights</h2>
+        <p class="section-subtitle">Small steps, consistent learning, and ideas turning into projects.</p>
+      </div>
+
+      <div class="projects-grid">
+        <div class="card project-card">
+          <div class="project-tagline">Android · Java · Firebase (Concept)</div>
+          <div class="project-title">Women Safety AI App</div>
+          <p class="project-desc">
+            Concept for an app that helps women stay safe by sending alerts to nearby police stations and trusted
+            contacts, even without internet using offline SMS. Planned with Firebase integration for real-time data.
+          </p>
+          <div class="project-meta">
+            <div class="tag-grid">
+              <span class="tag">Java</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">Location / SMS</span>
+            </div>
+            <div class="project-links">
+              <!-- Replace with real GitHub link later -->
+              <!-- <a href="#" target="_blank">GitHub ↗</a> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="card project-card">
+          <div class="project-tagline">Hackathon Theme · EdTech</div>
+          <div class="project-title">AI-Powered Personalized Learning</div>
+          <p class="project-desc">
+            Idea for a system that tracks student performance, identifies weak areas, and suggests personalized
+            practice problems, learning paths, and resources, using AI-driven recommendations.
+          </p>
+          <div class="project-meta">
+            <div class="tag-grid">
+              <span class="tag">AI Concepts</span>
+              <span class="tag">Learning Analytics</span>
+              <span class="tag">MERN (Future)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card project-card">
+          <div class="project-tagline">Practice · Logic · Patterns</div>
+          <div class="project-title">Java Pattern & DSA Challenges</div>
+          <p class="project-desc">
+            Solved multiple pattern problems like butterfly pattern, number patterns, cross box, palindrome checks,
+            and binary search as part of a 30-day coding challenge and daily practice.
+          </p>
+          <div class="project-meta">
+            <div class="tag-grid">
+              <span class="tag">Java</span>
+              <span class="tag">DSA Basics</span>
+              <span class="tag">Problem Solving</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Certificates -->
+    <section id="education">
+      <div class="section-header">
+        <h2 class="section-title">Education & Learning Journey</h2>
+        <p class="section-subtitle">My academic path and key certifications.</p>
+      </div>
+
+      <div class="card">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-title">B.Tech in Information Technology</div>
+            <div class="timeline-meta">
+              St. Joseph's Institute of Technology · 2024 – 2028 · CGPA: 8.80
+            </div>
+            <div class="timeline-desc">
+              Building a strong foundation in programming, data structures, algorithms, operating systems, networking,
+              and core computer science subjects.
+            </div>
+          </div>
+          <div class="timeline-item">
+        <div class="timeline-title">Infosys Springboard Certifications</div>
+        <div class="timeline-meta">Online Learning Platform · 2024–2025</div>
+        <div class="timeline-desc">
+          Completed multiple courses focused on software development, databases, and foundational CS knowledge.
+          Certifications include:
+          <ul style="margin-top: 6px; line-height: 1.5;">
+            <li>⭐️ Programming using Java</li>
+            <li>⭐️ Networking and Web Technology</li>
+            <li>⭐️ HTML, CSS & JavaScript</li>
+            <li>⭐️ Basics of Python</li>
+            <li>⭐️ Introduction to NoSQL Databases</li>
+            <li>⭐️ Introduction to H2O using Python</li>
+          </ul>
+        </div>
+      </div>
+
+          
+          <div class="timeline-item">
+            <div class="timeline-title">30-Day Coding Challenge (Ongoing)</div>
+            <div class="timeline-meta">Self-driven · Java & DSA Practice</div>
+            <div class="timeline-desc">
+              Solving daily problems including palindrome checks, binary search, array leaders, and pattern printing
+              to strengthen logic building and consistency.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="section-header">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">Open to internships, projects, and learning opportunities.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <p>
+            If you’d like to discuss an internship, project collaboration, or just talk about learning MERN and
+            development, feel free to reach out. I’m always happy to connect and grow.
+          </p>
+          <br />
+          <div class="contact-row">
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value">
+                <a href="mailto:metjsanthosh@gmail.com">metjsanthosh@gmail.com</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div>
+              <div class="contact-label">LinkedIn</div>
+              <div class="contact-value">
+                <a href="https://www.linkedin.com/in/santhosh-jeevarathinam-174148329" target="_blank">
+                  Connect on LinkedIn ↗
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Optional phone -->
+          <!--
+          <div class="contact-row">
+            <div>
+              <div class="contact-label">Phone</div>
+              <div class="contact-value">+91 70106 71154</div>
+            </div>
+          </div>
+          -->
+        </div>
+
+        
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Santhosh Jeevarathinam · 
+  </footer>
+
+  <script>
+    // Set current year automatically
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
